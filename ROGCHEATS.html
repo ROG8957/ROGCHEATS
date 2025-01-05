@@ -59,6 +59,110 @@
 	                                                     margin-right: 10px;
 	                                                 }
 	</style>
+
+	<style>
+		/* 整體區域設計 */
+		.car-light-ad-section {
+			padding: 40px;
+			background: linear-gradient(145deg, #101010, #282828);
+			color: #ffffff;
+			border-radius: 15px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+			text-align: center;
+			max-width: 1200px;
+			margin: auto;
+		}
+		.ad-title {
+			font-size: 32px;
+			margin-bottom: 30px;
+			font-weight: bold;
+			background: linear-gradient(90deg, #00c6ff, #0072ff);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+		
+		/* 圖片展示 */
+		.ad-image img {
+			width: 100%;
+			max-width: 800px; /* 保持圖片大小合適 */
+			height: auto;
+			border-radius: 15px;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 添加陰影提升質感 */
+			margin-bottom: 20px;
+		}
+		
+		/* 內容設計 */
+		.ad-content {
+			background: rgba(0, 0, 0, 0.7); /* 半透明背景提升可讀性 */
+			padding: 20px;
+			border-radius: 15px;
+			text-align: left;
+			max-width: 800px;
+			margin: 0 auto;
+		}
+		.ad-content h3 {
+			font-size: 24px;
+			margin-bottom: 15px;
+			color: #00c6ff;
+		}
+		.ad-content p {
+			font-size: 16px;
+			line-height: 1.8;
+			margin-bottom: 20px;
+		}
+		.features {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.features li {
+			font-size: 14px;
+			margin: 10px 0;
+			color: #ffffff;
+			display: flex;
+			align-items: center;
+		}
+		.features li::before {
+			content: "✔";
+			color: #00ff7f;
+			margin-right: 10px;
+		}
+		.ad-button {
+			display: inline-block;
+			padding: 10px 20px;
+			background: linear-gradient(90deg, #00c6ff, #0072ff);
+			border: none;
+			border-radius: 5px;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 14px;
+			font-weight: bold;
+			text-decoration: none;
+			margin: 10px 5px;
+			transition: background 0.3s ease;
+		}
+		.ad-button:hover {
+			background: linear-gradient(90deg, #0072ff, #00c6ff);
+			cursor: pointer;
+		}
+		
+		/* 影片區域設計 */
+		.ad-video {
+			width: 100%;
+			max-width: 800px; /* 保證適合不同屏幕 */
+			margin: 30px auto 0;
+			border-radius: 15px;
+			overflow: hidden;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+		}
+		.ad-video iframe {
+			width: 100%;
+			height: 450px; /* 調整為 16:9 比例 */
+			border: none;
+		}
+		</style>
+			
+
 	<style>
 	                   body {
 	                       font-family: Arial, sans-serif;
@@ -543,6 +647,9 @@
 						<option value="#">
 							選擇遊戲|版本|期限
 						</option>
+						<option value="https://shopee.tw/elisa668|1">
+							【🚗對升級車燈有興趣請私聊】(可以到蝦皮聊聊詢問)【蝦皮搜尋台中新動力】- $1
+						</option>
 
 						<option value="https://core.newebpay.com/EPG/AMDYES/nj0Gsg|1">
 							【💁客戶自定義下單】(給已經跟我們聯繫過的客戶下單)【需自行添加手續40元】- $1
@@ -671,6 +778,38 @@
 			     }
 			</style>
 
+			<div class="car-light-ad-section">
+				<h2 class="ad-title">💪本店多年的合作夥伴【台中新動力】💪</h2>
+				<h2 class="ad-title">🚗 極致車燈科技 · 點亮未來 🚗</h2>
+				<div class="ad-container">
+					<div class="ad-image">
+						<img src="https://live.staticflickr.com/65535/54248199446_09123e28da_o.png" alt="車燈產品展示">
+					</div>
+					<div class="ad-content">
+						<h3>【SUPER KINTA 汽車LED大燈 】</h3>
+						<p>以卓越亮度、智能控溫與全天候耐用性，為駕駛帶來前所未有的安全與舒適體驗。</p>
+						<p>台中新動力屬於我們的合作夥伴，有興趣升級車燈的，請到蝦皮聊聊THX。本店真心推薦 效果一級棒！</p>
+						<ul class="features">
+							<li>💪 台灣工藝X台灣技術X台灣第一亮</li>
+							<li>💪 超越蝦皮上的【鯨特/PA LED/卡西堤/歐司朗/飛利浦等】</li>
+							<li>💡原廠鹵素大燈升級LED 原廠HID升級LED 我們都有提供</li>
+							<li>💡 超高流明輸出，清晰夜間視野</li>
+							<li>🌡️ 智能控溫技術，持續穩定性能，並且擁有最棒的解碼器不跳故障碼故障燈</li>
+							<li>🌧️ IP68 防水等級，適應各種惡劣環境</li>
+						</ul>
+						<!-- 新增多個按鈕 -->
+						<a href="https://superkinta.github.io/SUPER-KINTA-LED/SUPER%20KINTA%20LED%20%E5%AE%98%E6%96%B9%E6%AD%A3%E7%89%88" class="ad-button" target="_blank">立即查看SUPER KINTA官網</a>
+						<a href="https://shopee.tw/elisa668" class="ad-button" target="_blank">想購買的請到蝦皮【台中新動力】</a>
+						<a href="https://www.youtube.com/@SUPERKINTA" class="ad-button" target="_blank">想看升級效果可以觀賞youtube</a>
+					</div>
+				</div>
+	
+
+				<div class="ad-video">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/BcuQ_YBn-Gs?si=AAMN4bJppAdZ3Fs8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				</div>
+			</div>
+				
 			<div class="testimonial-slider">
 				<!-- The first testimonial item starts as active -->
 
@@ -897,6 +1036,11 @@
 
 						<div class="update-log-container">
 							<h1>⚡神仙科技⚡網站更新日誌</h1>
+
+							<div class="log-entry">
+								<h2>2025年1月6日</h2>
+								<span class="bold-text">【🎂恭喜我們五周年了】：👉2025年1月6日 感謝各位的支持！我們已經走過五年的服務歷程，並將持續為您提供最優質的產品與服務。讓我們一同邁向GTA6時代的嶄新未來！</span>
+							</div>
 
 							<div class="log-entry">
 								<h2>2024年9月18日</h2>
