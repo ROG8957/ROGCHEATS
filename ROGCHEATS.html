@@ -1,1361 +1,471 @@
-<!DOCTYPE html>
-
-<html lang="zh-TW">
+<!doctype html>
+<html lang="zh-Hant-TW">
 <head>
-	<meta charset="UTF-8">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>神仙科技｜2.0舊版網頁已關閉｜請至 Discord 查看最新網頁</title>
+  <meta name="description" content="舊版網頁已關閉。請加入 Discord 查看最新網頁與公告。新款網頁支援刷卡一次付清/3/6分期（僅限台新）紅利折抵、Google Pay、Samsung Pay、Apple Pay、超商繳費、轉帳、銀聯卡等。" />
+  <meta name="theme-color" content="#070A12" />
 
-	<title>神仙科技 X 台灣倍樂電玩 | 銀行轉賬與無卡存款資訊</title>
-	<link href="https://live.staticflickr.com/65535/52792841951_76e3117e79_q.jpg" rel="icon" type="image/x-icon">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
-	<style>
-	                                                 body {
-	                                                     font-weight: bold;
-	                                                     font-family: Arial, sans-serif;
-	                                                     background-color: #f4f4f4;
-	                                                     margin: 0;
-	                                                     padding: 0;
-	                                                 }
-	                                                 .container {
-	                                                     max-width: 600px;
-	                                                     margin: 50px auto;
-	                                                     background-color: #fff;
-	                                                     padding: 20px;
-	                                                     border-radius: 5px;
-	                                                     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-	                                                 }
-	                                                 h1, h2 {
-	                                                     text-align: center;
-	                                                 }
-	                                                 h1 {
-	                                                     color: #007BFF;
-	                                                 }
-	                                                 .bank-info, .purchase-options {
-	                                                     margin-top: 20px;
-	                                                     padding: 20px;
-	                                                     background-color: #e9ecef;
-	                                                     border-radius: 5px;
-	                                                 }
-	                                                 .icon {
-	                                                     color: #007BFF;
-	                                                     margin-right: 10px;
-	                                                 }
-	                                                 .security, .purchase {
-	                                                     text-align: center;
-	                                                     margin-top: 20px;
-	                                                     color: green;
-	                                                 }
-	                                                 .buy-button {
-	                                                     background-color: #007BFF;
-	                                                     color: white;
-	                                                     padding: 10px 20px;
-	                                                     text-align: center;
-	                                                     display: inline-block;
-	                                                     border-radius: 5px;
-	                                                     cursor: pointer;
-	                                                 }
-	                                                 select {
-	                                                     padding: 10px;
-	                                                     margin-right: 10px;
-	                                                 }
-	</style>
+  <meta property="og:title" content="舊版網頁已關閉｜請至 Discord 查看最新網頁" />
+  <meta property="og:description" content="加入 Discord 取得最新網頁連結與公告。新款網頁支援多種付款方式。" />
+  <meta property="og:type" content="website" />
 
-	<style>
-		/* 整體區域設計 */
-		.car-light-ad-section {
-			padding: 40px;
-			background: linear-gradient(145deg, #101010, #282828);
-			color: #ffffff;
-			border-radius: 15px;
-			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-			text-align: center;
-			max-width: 1200px;
-			margin: auto;
-		}
-		.ad-title {
-			font-size: 32px;
-			margin-bottom: 30px;
-			font-weight: bold;
-			background: linear-gradient(90deg, #00c6ff, #0072ff);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-		}
-		
-		/* 圖片展示 */
-		.ad-image img {
-			width: 100%;
-			max-width: 800px; /* 保持圖片大小合適 */
-			height: auto;
-			border-radius: 15px;
-			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 添加陰影提升質感 */
-			margin-bottom: 20px;
-		}
-		
-		/* 內容設計 */
-		.ad-content {
-			background: rgba(0, 0, 0, 0.7); /* 半透明背景提升可讀性 */
-			padding: 20px;
-			border-radius: 15px;
-			text-align: left;
-			max-width: 800px;
-			margin: 0 auto;
-		}
-		.ad-content h3 {
-			font-size: 24px;
-			margin-bottom: 15px;
-			color: #00c6ff;
-		}
-		.ad-content p {
-			font-size: 16px;
-			line-height: 1.8;
-			margin-bottom: 20px;
-		}
-		.features {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-		}
-		.features li {
-			font-size: 14px;
-			margin: 10px 0;
-			color: #ffffff;
-			display: flex;
-			align-items: center;
-		}
-		.features li::before {
-			content: "✔";
-			color: #00ff7f;
-			margin-right: 10px;
-		}
-		.ad-button {
-			display: inline-block;
-			padding: 10px 20px;
-			background: linear-gradient(90deg, #00c6ff, #0072ff);
-			border: none;
-			border-radius: 5px;
-			color: #fff;
-			text-transform: uppercase;
-			font-size: 14px;
-			font-weight: bold;
-			text-decoration: none;
-			margin: 10px 5px;
-			transition: background 0.3s ease;
-		}
-		.ad-button:hover {
-			background: linear-gradient(90deg, #0072ff, #00c6ff);
-			cursor: pointer;
-		}
-		
-		/* 影片區域設計 */
-		.ad-video {
-			width: 100%;
-			max-width: 800px; /* 保證適合不同屏幕 */
-			margin: 30px auto 0;
-			border-radius: 15px;
-			overflow: hidden;
-			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-		}
-		.ad-video iframe {
-			width: 100%;
-			height: 450px; /* 調整為 16:9 比例 */
-			border: none;
-		}
-		</style>
-			
+  <style>
+    :root{
+      --bg0:#04050a;
+      --bg1:#070a12;
+      --panel: rgba(255,255,255,.08);
+      --panel2: rgba(255,255,255,.06);
+      --text:#e9ecf3;
+      --muted: rgba(233,236,243,.72);
+      --line: rgba(255,255,255,.12);
+      --brand:#7c5cff;
+      --brand2:#12d6df;
+      --ok:#2ee59d;
+      --warn:#ffcc66;
+      --shadow: 0 18px 55px rgba(0,0,0,.55);
+      --radius: 22px;
+    }
 
-		<style>
-			/* 全域樣式設定 */
-			* {
-			  margin: 0;
-			  padding: 0;
-			  box-sizing: border-box;
-			}
-		
-			body {
-			  font-family: Arial, sans-serif;
-			}
-		
-			.container {
-			  padding: 20px;
-			}
-		
-			img {
-			  max-width: 100%;
-			  height: auto;
-			}
-		
-			/* 針對寬度大於或等於 1024px 的裝置 */
-			@media (min-width: 1024px) {
-			  .container {
-				max-width: 1024px;
-				margin: 0 auto;
-			  }
-			}
-		
-			/* 針對寬度小於或等於 600px 的手機裝置 */
-			@media (max-width: 600px) {
-			  .container {
-				padding: 10px;
-			  }
-			}
-		  </style>
-		  
-	<style>
-	       .testimonial-slider {
-	           position: relative;
-	           width: 80%;
-	           max-width: 800px;
-	           margin: 40px auto;
-	           overflow: hidden;
-	           font-family: Arial, sans-serif;
-	           background: #f8f8f8;
-	           border-radius: 10px;
-	           box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-	       }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
+      background:
+        radial-gradient(1100px 700px at 18% 12%, rgba(124,92,255,.22), transparent 55%),
+        radial-gradient(900px 600px at 82% 24%, rgba(18,214,223,.18), transparent 52%),
+        radial-gradient(900px 700px at 55% 86%, rgba(46,229,157,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
 
-	       .testimonial-item {
-	           display: none;
-	           text-align: center;
-	           padding: 20px;
-	           box-sizing: border-box;
-	           color: #333;
-	       }
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 28px 18px 42px;
+    }
 
-	       .active {
-	           display: block;
-	       }
+    .card{
+      width:min(980px, 100%);
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
 
-	       .user-image {
-	           width: 150px; /* Increased image size */
-	           height: 150px; /* Keep the aspect ratio the same */
-	           border-radius: 50%;
-	           margin-bottom: 10px;
-	           border: 3px solid #ccc; /* Add a border around the image */
-	       }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 320px at 22% 0%, rgba(124,92,255,.22), transparent 60%),
+                  radial-gradient(520px 320px at 84% 10%, rgba(18,214,223,.16), transparent 58%);
+      pointer-events:none;
+    }
 
-	       .star-rating {
-	           color: #fdd835;
-	           margin-bottom: 15px;
-	           font-size: 1.2em; /* Larger star symbols */
-	       }
+    .inner{
+      position:relative;
+      padding: 28px;
+    }
 
-	       .details {
-	           text-align: left;
-	           margin: 0 10px 10px;
-	           font-size: 0.95em;
-	       }
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 18px;
+    }
 
-	       .testimonial-text {
-	           text-align: justify;
-	           line-height: 1.6;
-	           font-size: 1em;
-	           margin: 20px 10px;
-	       }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.24);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      font-size: 13px;
+      letter-spacing:.2px;
+    }
 
-	       .prev, .next {
-	           position: absolute;
-	           top: 50%;
-	           transform: translateY(-50%);
-	           background-color: #ddd;
-	           border: none;
-	           padding: 10px;
-	           cursor: pointer;
-	           border-radius: 50%;
-	       }
+    .dot{
+      width:10px; height:10px;
+      border-radius:50%;
+      background: var(--warn);
+      box-shadow: 0 0 0 4px rgba(255,204,102,.12);
+    }
 
-	       .prev {
-	           left: 10px;
-	       }
+    .brandMark{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      opacity:.92;
+      font-weight:700;
+      letter-spacing:.6px;
+      font-size: 13px;
+      color: rgba(233,236,243,.82);
+      text-transform: uppercase;
+    }
 
-	       .next {
-	           right: 10px;
-	       }
-	</style>
-	<script>
-	                                                 document.addEventListener('contextmenu', function (e) {
-	                                                     e.preventDefault();
-	                                                 });
-	                                                 document.addEventListener('keydown', function (e) {
-	                                                     if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 67 || e.keyCode == 86)) || (e.ctrlKey && e.keyCode == 85)) {
-	                                                         e.preventDefault();
-	                                                     }
-	                                                 });
-	                                                 function buyProduct(link) {
-	                                                     window.location.href = link;
-	                                                 }
-	</script>
+    .logo{
+      width: 28px; height:28px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(18,214,223,.75));
+      box-shadow: 0 10px 26px rgba(124,92,255,.20);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo::after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.65), transparent 55%);
+      transform: rotate(20deg);
+      opacity:.55;
+    }
 
-	<title>產品購買</title>
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: stretch;
+    }
 
-	<title>產品購買</title>
+    @media (max-width: 860px){
+      .inner{ padding: 20px; }
+      .grid{ grid-template-columns: 1fr; }
+    }
 
-	<title>產品購買</title>
+    h1{
+      margin: 8px 0 10px;
+      font-size: clamp(26px, 3.6vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -0.6px;
+    }
 
-	<title>產品購買</title>
+    .sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .callout{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.22);
+      border-radius: 16px;
+      padding: 14px 14px;
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+    }
+
+    .icon{
+      width: 38px; height:38px;
+      border-radius: 14px;
+      display:grid;
+      place-items:center;
+      background: rgba(124,92,255,.16);
+      border: 1px solid rgba(124,92,255,.22);
+      flex: 0 0 auto;
+    }
+
+    .callout b{ display:block; margin-bottom:4px; }
+    .callout small{ color: var(--muted); line-height:1.55; display:block; }
+
+    .panel{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      border-radius: 18px;
+      padding: 16px;
+      height:100%;
+    }
+
+    .panel h2{
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing:.2px;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .chip{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: rgba(233,236,243,.88);
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+    }
+
+    .check{
+      width: 18px; height:18px;
+      border-radius: 6px;
+      background: rgba(46,229,157,.14);
+      border: 1px solid rgba(46,229,157,.25);
+      display:grid;
+      place-items:center;
+      flex: 0 0 auto;
+    }
+
+    .ctaRow{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .btn{
+      appearance:none;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-weight: 700;
+      letter-spacing:.2px;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      text-decoration:none;
+      user-select:none;
+      min-height: 44px;
+    }
+
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.10); }
+    .btn:active{ transform: translateY(0px) scale(.99); }
+
+    .btnPrimary{
+      border: none;
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(18,214,223,.85));
+      box-shadow: 0 14px 30px rgba(124,92,255,.18);
+      color: #071018;
+    }
+
+    .btnPrimary:hover{
+      background: linear-gradient(135deg, rgba(124,92,255,1), rgba(18,214,223,1));
+    }
+
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+      color: rgba(233,236,243,.88);
+      word-break: break-all;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px dashed rgba(255,255,255,.18);
+      background: rgba(0,0,0,.22);
+      margin-top: 10px;
+    }
+
+    .foot{
+      margin-top: 16px;
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: rgba(233,236,243,.58);
+      font-size: 12px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding-top: 14px;
+    }
+
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,.72);
+      border: 1px solid rgba(255,255,255,.16);
+      color: rgba(233,236,243,.92);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      opacity: 0;
+      pointer-events:none;
+      transition: opacity .18s ease, transform .18s ease;
+      backdrop-filter: blur(10px);
+      z-index: 99;
+    }
+    .toast.show{
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+  </style>
 </head>
 
 <body>
-	<meta charset="UTF-8">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<style>
-	                                                 body { font-family: Arial, sans-serif; }
-	                                                 .purchase-options { max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,.1); }
-	                                                 .product h3 { color: #333; }
-	                                                 select { padding: 10px; border-radius: 5px; border: 1px solid #ddd; margin-top: 10px; width: 100%; box-sizing: border-box; }
-	                                                 .price { margin-top: 15px; font-size: 20px; color: #e53935; font-weight: bold; }
-	                                                 .buy-button { background-color: #4CAF50; color: white; padding: 15px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
-	                                                 .buy-button:hover { background-color: #45a049; }
-	</style>
-	<meta charset="UTF-8">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<style>
-	                                                 .product { margin-bottom: 20px; }
-	                                                 .price { margin-top: 10px; }
-	                                                 .buy-button { display: none; margin-top: 10px; }
-	</style>
-	<meta charset="UTF-8">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<style>
-	                                                 .purchase-options { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
-	                                                 .product { margin-bottom: 20px; }
-	                                                 .product img { width: 100%; max-width: 200px; height: auto; }
-	                                                 .features { margin: 10px 0; }
-	                                                 .price { margin-top: 10px; }
-	                                                 .buy-button { display: none; margin-top: 10px; background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-	                                                 .buy-button:hover { background-color: #0056b3; }
-	                                                 select { padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
-	</style>
-	<meta charset="UTF-8">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-	<style>
-	                                                 .purchase-options { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
-	                                                 .product { margin-bottom: 20px; }
-	                                                 .product img { width: 100%; max-width: 200px; height: auto; }
-	                                                 .features { margin: 10px 0; }
-	                                                 .price { margin-top: 10px; }
-	                                                 .buy-button { display: inline; margin-top: 10px; background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-	                                                 .buy-button:hover { background-color: #0056b3; }
-	                                                 .buy-button i { margin-right: 5px; }
-	                                                 select { padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
-	</style>
-	<style>
-	                                              body, html {
-	                                                  margin: 0;
-	                                                  padding: 0;
-	                                                  height: 100%;
-	                                              }
-	                                              .video-background {
-	                                                  position: fixed;
-	                                                  right: 0;
-	                                                  bottom: 0;
-	                                                  min-width: 100%; 
-	                                                  min-height: 100%;
-	                                                  width: auto; 
-	                                                  height: auto;
-	                                                  z-index: -100;
-	                                                  background: no-repeat;
-	                                                  background-size: cover;
-	                                              }
-	                                              .container {
-	                                                  position: relative;
-	                                                  z-index: 1;
-	                                                  max-width: 600px;
-	                                                  margin: 50px auto;
-	                                                  padding: 20px;
-	                                                  background-color: rgba(255, 255, 255, 0.8);
-	                                                  border-radius: 5px;
-	                                                  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-	                                              }
-	                                              /* 其他樣式保持不變 */
-	</style>
-	<style>
-	                                              body, html {
-	                                                  margin: 0;
-	                                                  padding: 0;
-	                                                  height: 100%;
-	                                              }
-	                                              .video-background {
-	                                                  position: fixed;
-	                                                  right: 0;
-	                                                  bottom: 0;
-	                                                  min-width: 100%; 
-	                                                  min-height: 100%;
-	                                                  width: auto; 
-	                                                  height: auto;
-	                                                  z-index: -100;
-	                                                  background: no-repeat;
-	                                                  background-size: cover;
-	                                              }
-	                                              .container {
-	                                                  position: relative;
-	                                                  z-index: 1;
-	                                                  max-width: 600px;
-	                                                  margin: 50px auto;
-	                                                  padding: 20px;
-	                                                  background-color: rgba(255, 255, 255, 0.8);
-	                                                  border-radius: 5px;
-	                                                  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-	                                              }
-	                                              .sound-control {
-	                                                  position: fixed;
-	                                                  z-index: 100;
-	                                                  right: 20px;
-	                                                  top: 20px;
-	                                                  cursor: pointer;
-	                                                  font-size: 24px;
-	                                                  color: #fff;
-	                                              }
-	</style>
-	<style>
-	                                              .account-info {
-	                                                  display: none;
-	                                              }
-	                                              .toggle-button {
-	                                                  background-color: #4CAF50;
-	                                                  color: white;
-	                                                  padding: 8px 16px;
-	                                                  border: none;
-	                                                  border-radius: 4px;
-	                                                  cursor: pointer;
-	                                                  transition: background-color 0.3s;
-	                                              }
-	                                              .toggle-button:hover {
-	                                                  background-color: #45a049;
-	                                              }
-	                                              .modal {
-	                                                  display: none;
-	                                                  position: fixed;
-	                                                  z-index: 1;
-	                                                  left: 0;
-	                                                  top: 0;
-	                                                  width: 100%;
-	                                                  height: 100%;
-	                                                  overflow: auto;
-	                                                  background-color: rgb(0,0,0);
-	                                                  background-color: rgba(0,0,0,0.4);
-	                                                  padding-top: 60px;
-	                                              }
-	                                              .modal-content {
-	                                                  background-color: #fefefe;
-	                                                  margin: 5% auto;
-	                                                  padding: 20px;
-	                                                  border: 1px solid #888;
-	                                                  width: 30%;
-	                                              }
-	                                              .close {
-	                                                  color: #aaaaaa;
-	                                                  float: right;
-	                                                  font-size: 28px;
-	                                                  font-weight: bold;
-	                                              }
-	                                              .close:hover,
-	                                              .close:focus {
-	                                                  color: #000;
-	                                                  text-decoration: none;
-	                                                  cursor: pointer;
-	                                              }
-	                                              #passwordInput {
-	                                                  width: 95%;
-	                                                  padding: 10px;
-	                                                  margin-top: 20px;
-	                                                  border-radius: 4px;
-	                                                  border: 1px solid #ddd;
-	                                              }
-	</style>
-	<style>
-	                                  body {
-	                                      font-family: 'Roboto', sans-serif;
-	                                      background-color: #f0f4f8;
-	                                      margin: 0;
-	                                      padding: 40px;
-	                                      color: #333;
-	                                  }
-	                                  .table-container {
-	                                      background: white;
-	                                      border-radius: 12px;
-	                                      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-	                                      overflow: hidden;
-	                                      margin: auto;
-	                                      max-width: 800px;
-	                                  }
-	                                  table {
-	                                      width: 100%;
-	                                      border-collapse: collapse;
-	                                  }
-	                                  th, td {
-	                                      padding: 15px;
-	                                      text-align: left;
-	                                  }
-	                                  th {
-	                                      background-color: #6c7ae0;
-	                                      background-image: linear-gradient(315deg, #6c7ae0 0%, #88e8f2 74%);
-	                                      color: white;
-	                                      font-weight: 500;
-	                                  }
-	                                  td {
-	                                      border-bottom: 1px solid #eaeff3;
-	                                  }
-	                                  tr:hover {
-	                                      background-color: #f5f7fa;
-	                                  }
-	                                  tr:last-child td {
-	                                      border-bottom: none;
-	                                  }
-	                                  .icon {
-	                                      margin-right: 8px;
-	                                      color: #6c7ae0;
-	                                  }
-	                                  .header {
-	                                      text-align: center;
-	                                      padding-bottom: 20px;
-	                                  }
-	                                  .header h2 {
-	                                      margin: 0;
-	                                      color: #333;
-	                                  }
-	</style>
-	<style>
-	                            body {
-	                                font-family: 'Poppins', sans-serif;
-	                                background-color: #f5f7fa;
-	                                color: #333;
-	                                margin: 0;
-	                                padding: 20px;
-	                                transition: background-color 0.3s ease;
-	                            }
-
-	                            .update-log-container {
-	                                max-width: 900px;
-	                                margin: 40px auto;
-	                                background: white;
-	                                padding: 25px;
-	                                border-radius: 10px;
-	                                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-	                                transition: box-shadow 0.3s ease;
-	                            }
-
-	                            .update-log-container:hover {
-	                                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-	                            }
-
-	                            .log-entry {
-	                                background: #ffffff;
-	                                margin: 20px 0;
-	                                padding: 20px;
-	                                border-radius: 8px;
-	                                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-	                                transition: transform 0.3s ease, box-shadow 0.3s ease;
-	                                position: relative;
-	                                overflow: hidden;
-	                            }
-
-	                            .log-entry:before {
-	                                content: '';
-	                                position: absolute;
-	                                top: 0;
-	                                left: -100%;
-	                                width: 100%;
-	                                height: 100%;
-	                                background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-	                                transition: left 0.6s ease;
-	                            }
-
-	                            .log-entry:hover:before {
-	                                left: 100%;
-	                            }
-
-	                            .log-entry:hover {
-	                                transform: translateY(-5px);
-	                                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-	                            }
-
-	                            .log-entry h2 {
-	                                color: #007bff;
-	                                font-weight: 600;
-	                            }
-
-	                            .log-entry p {
-	                                font-weight: 400;
-	                            }
-
-	                            /* 新增動畫效果 */
-	                            @keyframes fadeInUp {
-	                                from {
-	                                    opacity: 0;
-	                                    transform: translateY(20px);
-	                                }
-	                                to {
-	                                    opacity: 1;
-	                                    transform: translateY(0);
-	                                }
-	                            }
-
-	                            .log-entry {
-	                                animation: fadeInUp 0.5s ease-out;
-	                            }
-
-	                            @media (max-width: 600px) {
-	                                .update-log-container {
-	                                    padding: 15px;
-	                                }
-	                            }
-	</style>
-	<style>
-	                      .bank-info { padding: 20px; background-color: #f0f0f0; margin-bottom: 10px; }
-	                      .account-info { display: none; }
-	                      .toggle-button, .copy-button { cursor: pointer; margin-left: 10px; padding: 5px; background-color: #007bff; color: white; border: none; border-radius: 5px; }
-	                      .copy-button { background-color: #28a745; }
-	                      .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4); padding-top: 60px; }
-	                      .modal-content { background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 30%; }
-	                      .close { color: #aaaaaa; float: right; font-size: 28px; font-weight: bold; }
-	                      .close:hover, .close:focus { color: #000; text-decoration: none; cursor: pointer; }
-	</style><video autoplay="" class="video-background" id="myVideo" loop="" muted="" playsinline=""><source src="https://raiden.gg/assets/videoplayback.mp4" type="video/mp4"></video>
-
-	<div class="container">
-		<div class="container">
-			<h1>🏅台灣倍樂電玩 X⚡神仙科技⚡</h1>
-
-
-			<h1>【銀行轉賬 | 無卡存款 | 超商繳費】</h1>
-
-
-			<h2>安全 | 方便 | 快捷</h2>
-
-
-			<div class="security">
-				<i class="fas fa-shield-alt fa-3x"></i>
-
-				<p>您的交易安全是我們的首要任務。轉賬完畢請保留好證明or收據。</p>
-			</div>
-			<!-- 產品購買選項 -->
-
-
-			<div class="purchase-options">
-				<h2>🛍️ 產品購買【已經自動添加好手續】</h2>
-
-
-				<h2>【超商繳費轉區】</h2>
-				<!-- 產品一 -->
-
-
-				<div class="product">
-					<h2>本店販售：GTAV | RDR2 | CS2 | 幻獸帕魯 | 絕地戰兵2</h2>
-					<h2>【想要免手續費 禁止使用選單下拉  請往下滑 有中國信託 | 國泰世華 帳號Thx 】</h2>
-
-					<img alt="產品" src="https://upload.wikimedia.org/wikipedia/zh/0/0a/V_coverart_1024x768.jpg"> <img alt="產品" src="https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg"> <img alt="產品" src="https://cdn.cloudflare.steamstatic.com/apps/csgo/images/csgo_react/social/cs2.jpg"> <img alt="產品" src="https://cdn.akamai.steamstatic.com/steam/apps/1623730/header.jpg?t=1705662211">
-
-					<div class="features">
-						<p>探索全新的遊戲世界，享受前所未有的遊戲體驗。</p>
-					</div>
-					<select id="productSelect" onchange="updateProductInfo()">
-						<option value="#">
-							選擇遊戲|版本|期限
-						</option>
-						<option value="https://shopee.tw/elisa668|1">
-							【🚗對升級車燈有興趣請私聊】(可以到蝦皮聊聊詢問)【蝦皮搜尋台中新動力】- $1
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/nj0Gsg|1">
-							【💁客戶自定義下單】(給已經跟我們聯繫過的客戶下單)【需自行添加手續40元】- $1
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/3vDehQ|1740">
-							【💪GTAV 支持強化+傳承 一套雙向溝通】🔥Atlas 開啟BE進入戰局 【包含超繳手續費】- $1740
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/ztofWM|1440">
-							【💪GTAV支持強化版】🔥XiRush 關BE進公開 被BE了也能進 【包含超繳手續費】- $1440
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/A0ixEo|1100">
-							【💪GTAV支持傳承版+強化版(⚠️更新中)】🔥Ella 開啟BE進入戰局 【包含超繳手續費】- $1100
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/7vKfiG|1390">
-							【💪GTAV支持傳承版+ 強化版】🔥Erebus 開啟BE進入戰局 【包含超繳手續費】- $1390
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/mjWkcL|1390">
-							【💪GTAV僅支持傳承版】🔥Frostbite 開啟BE進入戰局 【包含超繳手續費】- $1390
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/1W3Yqu|2290">
-							【💪GTAV僅支持傳承版】🔥Lexis 開啟BE進入戰局 【包含超繳手續費】- $2290
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/LfVzyP|1540">
-							【💪GTAV (僅支持傳承版 強化後續需要另購)】💯新反作弊來襲FRIEZA穩如泰山【包含超繳手續費】- $1540
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/Kle7qD|2590">
-							【💪GTAV 支持傳承+強化版線上單人】購買前先私聊 庫存有限🍒CHERAX V5強勢來襲 獨領風騷【包含超繳手續費】- $2590
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/BA62Sk|4390">
-							【💀GTAV 支持最新反作弊 但有一定的封號風險】STAND終生版+真實車輛模組【包含超繳手續費】- $4390
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/zogrxn|2390">
-							【💀GTAV 支持最新反作弊 但有一定的封號風險】STAND終極版【包含超繳手續費】- $2390
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/doqfwD|2390">
-							【👍RDR2 個人推薦 功能豐富 外國菜單】RIFT終生版【包含超繳手續費】- $2390
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/5lLztI|1640">
-							【👍RDR2 流暢體驗 功能豐富 外國菜單】Sunrise終生版【包含超繳手續費】- $1640
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/sx4pqP|1640">
-							【👍RDR2】黃昏終生版 CP值高【包含超繳手續費】- $1640
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/cl8VIA|2580">
-							【RDR2 🚚缺貨中 暫且不補貨】EXODUS終生版【包含超繳手續費】- $2580
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/iIbbjc|2490">
-							【RDR2 不是很建議購買】FORTITUDE終生版【包含超繳手續費】- $2490
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/Lf9MA1|1290">
-							【RDR2 不建議購買 不怎麼更新】PRIME終生版 強烈不建議購買【包含超繳手續費】- $1290
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/HeS9Gw|2490">
-							【幻獸帕魯】💪用戶強烈推薦 終極版-永久版 【包含超繳手續費】- $2490
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/x9qf1q|590">
-							【🔥CS2 老牌午夜頂級巔峰之作】可換膚 1個月 中文版【包含超繳手續費】- $590
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/alaHVb|1080">
-							【🔥CS2 老牌午夜頂級巔峰之作】可換膚 2個月 中文版【包含超繳手續費】- $1080
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/qg3ZSd|1540">
-							【🔥CS2 老牌午夜頂級巔峰之作】可換膚 3個月 中文版【包含超繳手續費】- $1540
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/npnx2S|2980">
-							【🔥CS2 老牌午夜頂級巔峰之作】可換膚 6個月+送2個月 中文版【包含超繳手續費】- $2980
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/xChIH4|450">
-							【🔥CS2 老牌紅演 MS】 1個月 不可換膚【包含超繳手續費】- $450
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/2Nkk7L|890">
-							【🔥CS2 老牌紅演 MS】 2個月 不可換膚【包含超繳手續費】- $890
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/KFznqY|1330">
-							【🔥CS2 老牌紅演 MS】 3個月 不可換膚【包含超繳手續費】- $1330
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/7YF3shU|2560">
-							【🔥CS2 老牌紅演 MS】 6個月+送2個月 不可換膚【包含超繳手續費】- $2560
-						</option>
-						
-						<option value="https://core.newebpay.com/EPG/AMDYES/ePNEHU|490">
-							【🔥CS2補貨完畢 熱銷產品】可換膚 1個月【包含超繳手續費】- $490
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/AXiEMq|840">
-							【🔥CS2補貨完畢 熱銷產品】可換膚 2個月【包含超繳手續費】- $840
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/4MXZ2s|1190">
-							【🔥CS2補貨完畢 熱銷產品】可換膚 3個月【包含超繳手續費】- $1190
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/MVm33o|420">
-							【🔥CS2補貨完畢 熱銷產品】不可換膚 1個月【包含超繳手續費】- $420
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/n9xnQk|720">
-							【🔥CS2補貨完畢 熱銷產品】不可換膚 2個月【包含超繳手續費】- $720
-						</option>
-
-						<option value="https://core.newebpay.com/EPG/AMDYES/IK0L4r|1020">
-							【🔥CS2補貨完畢 熱銷產品】不可換膚 3個月【包含超繳手續費】- $1020
-						</option>
-
-					</select>
-
-					<div class="price" id="priceDisplay">
-					</div>
-					<button class="buy-button" id="buyButton"><i class="fas fa-shopping-cart"></i> 立即購買</button>
-				</div>
-			</div>
-			<!-- 銀行 -->
-			<style>
-			     @keyframes rainbow-text-animation {
-			         0% {background-position: 0% 50%;}
-			         50% {background-position: 100% 50%;}
-			         100% {background-position: 0% 50%;}
-			     }
-
-			     .rainbow-text {
-			         font-size: 24px;
-			         font-weight: bold;
-			         background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
-			         background-size: 200% 200%;
-			         -webkit-background-clip: text;
-			         color: transparent;
-			         background-clip: text;
-			         animation: rainbow-text-animation 10s ease infinite;
-			     }
-			</style>
-
-			<div class="car-light-ad-section">
-				<h2 class="ad-title">💪本店多年的合作夥伴【台中新動力】💪</h2>
-				<h2 class="ad-title">🚗 極致車燈科技 · 點亮未來 🚗</h2>
-				<div class="ad-container">
-					<div class="ad-image">
-						<img src="https://live.staticflickr.com/65535/54248199446_09123e28da_o.png" alt="車燈產品展示">
-					</div>
-					<div class="ad-content">
-						<h3>【SUPER KINTA 汽車LED大燈 】</h3>
-						<p>以卓越亮度、智能控溫與全天候耐用性，為駕駛帶來前所未有的安全與舒適體驗。</p>
-						<p>台中新動力屬於我們的合作夥伴，有興趣升級車燈的，請到蝦皮聊聊THX。本店真心推薦 效果一級棒！</p>
-						<ul class="features">
-							<li>💪 台灣工藝X台灣技術X台灣第一亮</li>
-							<li>💪 超越蝦皮上的【鯨特/PA LED/卡西堤/歐司朗/飛利浦等】</li>
-							<li>💡原廠鹵素大燈升級LED 原廠HID升級LED 我們都有提供</li>
-							<li>💡 超高流明輸出，清晰夜間視野</li>
-							<li>🌡️ 智能控溫技術，持續穩定性能，並且擁有最棒的解碼器不跳故障碼故障燈</li>
-							<li>🌧️ IP68 防水等級，適應各種惡劣環境</li>
-						</ul>
-						<!-- 新增多個按鈕 -->
-						<a href="https://superkinta.github.io/SUPER-KINTA-LED/SUPER%20KINTA%20LED%20%E5%AE%98%E6%96%B9%E6%AD%A3%E7%89%88" class="ad-button" target="_blank">立即查看SUPER KINTA官網</a>
-						<a href="https://shopee.tw/elisa668" class="ad-button" target="_blank">想購買的請到蝦皮【台中新動力】</a>
-						<a href="https://www.youtube.com/@SUPERKINTA" class="ad-button" target="_blank">想看升級效果可以觀賞youtube</a>
-					</div>
-				</div>
-	
-
-				<div class="ad-video">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/BcuQ_YBn-Gs?si=AAMN4bJppAdZ3Fs8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-				</div>
-			</div>
-				
-			<div class="testimonial-slider">
-				<!-- The first testimonial item starts as active -->
-
-
-				<div class="testimonial-item active">
-					<img alt="User 1" class="user-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7On9RnDcCwpIRFYVcJ2AkQanYMw4NgIfJh4bYRiP4KA&sandreas-gta-5-online-gunrunning-playstation-4-mod-gta-miscellaneous-emblem-label-thumbnail.png">
-
-					<div class="star-rating">
-						⭐⭐⭐⭐⭐
-					</div>
-
-
-					<div class="details">
-						<strong>菜單名稱：</strong>BBQ508-3
-					</div>
-
-
-					<div class="details">
-						<strong>遊戲類型：</strong>絕地戰兵2
-					</div>
-
-
-					<div class="details">
-						<strong>品質：</strong>極棒的
-					</div>
-
-
-					<div class="details">
-						<strong>CP值：</strong>非常高
-					</div>
-
-
-					<p class="testimonial-text">心得感想：<br>
-					我買的是絕地戰兵2的輔助，因為先前在蝦皮有很不好的消費體驗，因此這次想說先買天卡體驗看看，並直接請賣家幫我連線測試，結果這一弄就是一個下午了，而且今天還是母親節假日，這樣子的服務品質跟職業熱誠真的沒話說，我非常願意推薦此賣家給想買絕地戰兵2輔助的玩家們，一起用輔助來宣揚民主！賣家很細心、也很有耐心，每個問題都很認真回覆，也很傾聽客戶的需求，值得大力推薦！！</p>
-				</div>
-				<!-- Additional testimonial items -->
-
-
-				<div class="testimonial-item">
-					<img alt="User 2" class="user-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7On9RnDcCwpIRFYVcJ2AkQanYMw4NgIfJh4bYRiP4KA&sandreas-gta-5-online-gunrunning-playstation-4-mod-gta-miscellaneous-emblem-label-thumbnail.png">
-
-					<div class="star-rating">
-						⭐⭐⭐⭐⭐
-					</div>
-
-
-					<div class="details">
-						<strong>菜單名稱：</strong>FRIEZA
-					</div>
-
-
-					<div class="details">
-						<strong>遊戲類型：</strong>GTA5
-					</div>
-
-
-					<div class="details">
-						<strong>品質：</strong>超級棒
-					</div>
-
-
-					<div class="details">
-						<strong>CP值：</strong>超高CP值
-					</div>
-
-
-					<p class="testimonial-text">心得感想：<br>
-					今天感謝老闆的推薦，FRIEZA實在太好用了，剛一個小白入手GTA5，線上常常被攻擊惡搞 而且沒錢沒等級 實在很懊惱，還好有老闆的推薦，讓我在線上實現財富自由💯</p>
-				</div>
-				<!-- 更多評價項可以繼續添加 -->
-				<button class="prev">⟨</button> <button class="next">⟩</button>
-			</div>
-
-
-			<h2 class="rainbow-text">【需要轉賬的用戶您好 以下為我們的帳號】</h2>
-
-
-			<h2 class="rainbow-text">【轉賬之前請先 聊聊 OR DISCORD 獲取密碼】</h2>
-
-
-			<h2 class="rainbow-text">【虛擬貨幣 我們支持USDT TRC20 需要的話 聊聊 OR DISCORD 獲取密碼】</h2>
-
-
-			<div class="bank-info">
-				<h2><i class="fas fa-university icon"></i>中國信托（822）<button class="toggle-button" onclick="showModal('account1')">顯示帳號</button></h2>
-
-
-				<p class="account-info" id="account1"><strong>帳號：</strong><span class="account-number">067540357340</span><button class="copy-button" onclick="copyToClipboard('account1')" style="display: none;">複製帳號</button>
-				</p>
-
-
-				<h2><i class="fas fa-university icon"></i>國泰世華（013）<button class="toggle-button" onclick="showModal('account2')">顯示帳號</button></h2>
-
-
-				<p class="account-info" id="account2"><strong>帳號：</strong><span class="account-number">699514269797</span><button class="copy-button" onclick="copyToClipboard('account2')" style="display: none;">複製帳號</button>
-				</p>
-
-
-				<h2><i class="fas fa-university icon"></i>USDT（TRC20）<button class="toggle-button" onclick="showModal('account3')">顯示帳號</button></h2>
-
-
-				<p class="account-info" id="account3"><strong>錢包地址：</strong><span class="account-number">TJULQmDnDafYXaZsCCs4VfP73kuhuUXRtk</span><button class="copy-button" onclick="copyToClipboard('account3')" style="display: none;">複製錢包地址</button>
-				</p>
-			</div>
-
-
-			<div class="modal" id="myModal">
-				<div class="modal-content">
-					<span class="close">&times;</span>
-
-					<p>請輸入密碼【密碼請聯系我們獲取（聊聊 OR DISOCRD）】:</p>
-					<input id="passwordInput" placeholder="密碼" type="password"> <button class="toggle-button" onclick="checkPassword()">提交</button>
-				</div>
-			</div>
-
-
-			<div class="bank-info">
-				<h2><i class="fas fa-wallet icon"></i>無卡存款服務</h2>
-
-
-				<p>您可以在任何銀行超商使用無卡存款服務。</p>
-
-
-				<p>⚠️使用無卡存款服務之前請先提醒是轉（中國信託）or（國泰世華）</p>
-
-
-				<p>✅本店建議 無卡存款 請使用中國信託（因為711都是跟中國信託合作比較方便）</p>
-
-
-				<p>✅以下為無卡存款說明示範【上面為中國信託 下面為國泰世華】</p>
-
-
-				<div class="youtube-video">
-					<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/-EXKKc-wbjw" title="7-11中國信託atm無卡存款" width="560"></iframe> <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/7QW2WFLkJRo" title="國泰世華銀行自動存款機體驗篇" width="560"></iframe>
-
-					<div class="bank-info">
-						<h2><i class="fas fa-check-circle icon"></i>如何確認轉賬成功</h2>
-
-
-						<p>1. 請保留您的轉帳交易憑證或截圖，以供我們查證。</p>
-
-
-						<p>2. 轉帳完成後，請您攜帶證明上傳or拍照供我們審查。</p>
-
-
-						<p>3. 收到款項後，我們會幫您安排安裝時間【請到聊聊 or DISCORD上安排】。</p>
-
-
-						<p>4. 嚴禁造假轉賬交易截圖，查證為虛假，一律拉黑處理，嚴重者報警處理。</p>
-						<iframe allowtransparency="true" frameborder="0" height="500" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" src="https://discord.com/widget?id=788748936261271573&theme=dark" width="350"></iframe>
-
-						<div class="header">
-							<h2>🛠️本店不販售的菜單列表</h2>
-						</div>
-
-
-						<div class="table-container">
-							<table>
-								<thead>
-									<tr>
-										<th>產品品名</th>
-
-										<th>不販售的原因</th>
-									</tr>
-								</thead>
-
-
-								<tbody>
-									<tr>
-										<td><i class="fas fa-tablet-alt icon"></i>Ethereal<br>
-										【空靈】</td>
-
-										<td><i class="fas fa-gavel icon"></i><br>
-										1.竊取個人資料<br>
-										2.過度的垃圾保護導致遊戲異常<br>
-										3.被R星檢測到導致封號</td>
-									</tr>
-
-									<tr>
-										<td><i class="fas fa-tablet-alt icon"></i>2TAKE1</td>
-
-										<td><i class="fas fa-ban icon"></i>2TAKE1 於2025-03-05宣佈跑路</td>
-									</tr>
-
-									<tr>
-										<td><i class="fas fa-tablet-alt icon"></i>幻影</td>
-
-										<td><i class="fas fa-ban icon"></i>2025-03-02 凌晨0：32分離世 幻影享年9歲 </td>
-									</tr>
-
-									
-									<tr>
-										<td><i class="fas fa-tablet-alt icon"></i>XIPRO</td>
-
-										<td><i class="fas fa-ban icon"></i>一個垃圾吹噓菜單 跟坨屎沒兩樣 誰買誰SB</td>
-									</tr>
-
-
-									<tr>
-										<td><i class="fas fa-tablet-alt icon"></i>泰坦</td>
-
-										<td><i class="fas fa-ban icon"></i>一個不怎麼樣的垃圾菜單 不如FRIEZA</td>
-									</tr>
-
-
-									<tr>
-										<td><i class="fas fa-tablet-alt icon"></i>開拓者</td>
-
-										<td><i class="fas fa-ban icon"></i>DEV只會更新 支持最新GTAO而已 其餘擺爛</td>
-									</tr>
-
-
-									<tr>
-										<td><i class="fas fa-tablet-alt icon"></i>SVN阿爾法</td>
-
-										<td><i class="fas fa-ban icon"></i>注入崩菜單 DEV沒在fix</td>
-									</tr>
-
-
-									<tr>
-										<td><i class="fas fa-tablet-alt icon"></i>NORTH |北域</td>
-
-										<td><i class="fas fa-ban icon"></i>死光頭DEV 整天沒事幹 爛菜單誰買誰入坑</td>
-									</tr>
-									<!-- 更多不販售的產品和原因 -->
-								</tbody>
-							</table>
-						</div>
-
-
-						<div class="update-log-container">
-							<h1>⚡神仙科技⚡網站更新日誌</h1>
-
-							<div class="log-entry">
-								<h2>2025年3月14日</h2>
-								<span class="bold-text">【📢上架強化版菜單】：僅限支持強化版 關BE進公開XiRush </span>
-							</div>
-
-							<div class="log-entry">
-								<h2>2025年3月8日</h2>
-								<span class="bold-text">【📢更新了一些選項】：現今可以使用的菜單 請看選項說明</span>
-							</div>
-
-							<div class="log-entry">
-								<h2>2025年3月5日</h2>
-								<span class="bold-text">【📢宣佈跑路的外掛】：2TAKE1於2025-03-05宣佈跑路 | 幻影2025-03-02 凌晨0：32分離世 享年9歲</span>
-							</div>
-
-							<div class="log-entry">
-								<h2>2025年3月4日</h2>
-								<span class="bold-text">【📢上架新商品】：🔥上架GTA-Frostbite【內核注入穩定】。</span>
-							</div>
-
-							<div class="log-entry">
-								<h2>2025年2月28日</h2>
-								<span class="bold-text">【📢上架新商品】：🔥上架GTA-Atlas【老牌菜單】RDR2-Sunrise 【外國菜單 功能豐富】下架RDR2-Erebus</span>
-							</div>
-
-
-							<div class="log-entry">
-								<h2>2025年2月13日</h2>
-								<span class="bold-text">【📢上架新商品】：🔥上架RDR2-Rift【個人喜好愛用的一套】RDR2-Erebus【要預算充足建議購買RDR2-Rift】</span>
-							</div>
-
-							<div class="log-entry">
-								<h2>2025年2月11日</h2>
-								<span class="bold-text">【📢上架新商品】：🔥上架GTA-Lexis 可開啟BE進入戰局。上架CS2巔峰之作外掛</span>
-							</div>
-
-							<div class="log-entry">
-								<h2>2025年1月6日</h2>
-								<span class="bold-text">【🎂恭喜我們五周年了】：👉2025年1月6日 感謝各位的支持！我們已經走過五年的服務歷程，並將持續為您提供最優質的產品與服務。讓我們一同邁向GTA6時代的嶄新未來！</span>
-							</div>
-
-							<div class="log-entry">
-								<h2>2024年9月18日</h2>
-								<span class="bold-text">【🔄R星中秋大禮包】：👉2024年9月18日 GTAO添加BattlEye 反作弊系統!</span>
-							</div>
-
-							<div class="log-entry">
-								<h2>2024年6月28日</h2>
-								<span class="bold-text">【📢上架新商品】：🍒上架GTA5 CHERAX終極版菜單。</span>
-							</div>
-
-
-							<div class="log-entry">
-								<h2>2024年5月28日</h2>
-								<span class="bold-text">【📢上架新商品】：上架絕地戰兵2系列菜單。</span>
-							</div>
-
-
-							<div class="log-entry">
-								<h2>2024年4月7日</h2>
-								<span class="bold-text">【🛠️修復無卡存款教學】：已修復中國信託無卡存款教學。</span>
-							</div>
-
-
-							<div class="update-log">
-								<div class="log-entry">
-									<h2>2024年4月7日</h2>
-									<span class="bold-text">【🔄優化改進】：1.優化提示 提升瀏覽速度</span>
-								</div>
-
-
-								<div class="update-log">
-									<div class="log-entry">
-										<h2>2024年2月17日</h2>
-										<span class="bold-text">【🔄優化改進】：優化不必要多餘的CODE</span>
-									</div>
-
-
-									<div class="log-entry">
-										<h2>2024年2月13日</h2>
-										<span class="bold-text">【🐞IOS渲染BUG】：由於IOS渲染跟安卓不同 使用上比例比較奇怪請見諒thx。<br>
-										安卓端用戶請使用google瀏覽器 切換成電腦版網站模式 達到最佳比例</span>
-									</div>
-
-
-									<div class="log-entry">
-										<h2>2024年2月13日</h2>
-										<span class="bold-text">【🔄優化改進】：一鍵快速複製帳號 不用手動自行輸入。</span>
-									</div>
-
-
-									<div class="log-entry">
-										<h2>2024年2月13日</h2>
-										<span class="bold-text">【🌐正式上線】：優化的界面 選單 背景等bug。</span>
-									</div>
-
-
-									<div class="log-entry">
-										<h2>2024年2月11日</h2>
-										<span class="bold-text">【🛠️背景bug fix】：已修復IOS背景無法正常播放的問題。</span>
-									</div>
-
-
-									<div class="log-entry">
-										<h2>2024年2月11日</h2>
-										<span class="bold-text">【🐞背景bug】：已知IOS系統背景無法自動播放 安卓系統正常。</span>
-									</div>
-
-
-									<div class="log-entry">
-										<h2>2024年2月10日</h2>
-										<span class="bold-text">【📢網頁1.0升級2.0】：感謝各大用戶支持與肯定 讓我們2024繼續加油💪。</span>
-									</div>
-									<!-- 更多更新記錄 -->
-								</div>
-							</div>
-							<script>
-							var currentAccountId = ''; // 當前嘗試顯示的帳號ID
-
-							function showModal(accountId) {
-							 currentAccountId = accountId; // 記錄當前帳號ID
-							 document.getElementById("myModal").style.display = "block";
-							}
-
-							document.getElementsByClassName("close")[0].onclick = function() {
-							 document.getElementById("myModal").style.display = "none";
-							}
-
-							window.onclick = function(event) {
-							 if (event.target == document.getElementById("myModal")) {
-							     document.getElementById("myModal").style.display = "none";
-							 }
-							}
-
-							function checkPassword() {
-							 var inputPassword = document.getElementById("passwordInput").value;
-							 const correctPassword = "GTARDR2"; // 正確的密碼
-							 if (inputPassword === correctPassword) {
-							     document.getElementById(currentAccountId).style.display = "block"; // 顯示帳號信息
-							     document.querySelector(`#${currentAccountId} .copy-button`).style.display = "inline"; // 顯示對應的覆制按鈕
-							     document.getElementById("myModal").style.display = "none";
-							 } else {
-							     alert("密碼錯誤!");
-							 }
-							}
-
-							function copyToClipboard(accountId) {
-							 var accountInfoElement = document.querySelector(`#${accountId} .account-number`);
-							 var accountText = accountInfoElement.innerText; // 提取純帳號或錢包地址文本
-
-							 navigator.clipboard.writeText(accountText).then(function() {
-							     alert(accountText + ' 已覆制到剪貼板');
-							 }, function(err) {
-							     console.error('無法覆制帳號: ', err);
-							 });
-							}
-							</script> 
-							<script>
-							                                                                                                                                                 function updateProductInfo() {
-							                                                                                                                                                   var select = document.getElementById('productSelect');
-							                                                                                                                                                   var value = select.value;
-							                                                                                                                                                   if (value !== '#') {
-							                                                                                                                                                       var parts = value.split('|');
-							                                                                                                                                                       var link = parts[0];
-							                                                                                                                                                       var price = parts[1];
-
-							                                                                                                                                                       document.getElementById('priceDisplay').innerText = "價格: $" + price;
-							                                                                                                                                                       var buyButton = document.getElementById('buyButton');
-							                                                                                                                                                       buyButton.style.display = 'inline';
-							                                                                                                                                                       buyButton.onclick = function() {
-							                                                                                                                                                           window.open(link, '_blank').focus();
-							                                                                                                                                                       };
-							                                                                                                                                                   } else {
-							                                                                                                                                                       document.getElementById('priceDisplay').innerText = '';
-							                                                                                                                                                       document.getElementById('buyButton').style.display = 'none';
-							                                                                                                                                                   }
-							                                                                                                                                                 }
-							</script>
-						</div>
-					</div>
-					<script>
-					                                                                     function updateProductInfo() {
-					                                                                       var select = document.getElementById('productSelect');
-					                                                                       var value = select.value;
-					                                                                       if (value !== '#') {
-					                                                                           var parts = value.split('|');
-					                                                                           var link = parts[0];
-					                                                                           var price = parts[1];
-
-					                                                                           document.getElementById('priceDisplay').innerText = "價格: $" + price;
-					                                                                           var buyButton = document.getElementById('buyButton');
-					                                                                           buyButton.style.display = 'inline';
-					                                                                           buyButton.onclick = function() {
-					                                                                               window.open(link, '_blank').focus();
-					                                                                           };
-					                                                                       } else {
-					                                                                           document.getElementById('priceDisplay').innerText = '';
-					                                                                           document.getElementById('buyButton').style.display = 'none';
-					                                                                       }
-					                                                                     }
-					</script> <i class="fas fa-volume-mute sound-control" id="soundControl"></i> 
-					<script>
-					                                                                 const myVideo = document.getElementById('myVideo');
-					                                                                 const soundControl = document.getElementById('soundControl');
-
-					                                                                 // 默認情況下視頻為靜音
-					                                                                 myVideo.muted = true;
-
-					                                                                 soundControl.addEventListener('click', function() {
-					                                                                     if (myVideo.muted) {
-					                                                                         myVideo.muted = false;
-					                                                                         soundControl.classList.remove('fa-volume-mute');
-					                                                                         soundControl.classList.add('fa-volume-up');
-					                                                                     } else {
-					                                                                         myVideo.muted = true;
-					                                                                         soundControl.classList.remove('fa-volume-up');
-					                                                                         soundControl.classList.add('fa-volume-mute');
-					                                                                     }
-					                                                                 });
-					</script> 
-					<script>
-					document.addEventListener('DOMContentLoaded', (event) => {
-					// 禁止複製
-					document.addEventListener('copy', function(e) {
-					 e.preventDefault();
-					 alert('複製功能已被禁用。');
-					});
-
-					// 禁止粘貼
-					document.addEventListener('paste', function(e) {
-					 e.preventDefault();
-					 alert('粘貼功能已被禁用。');
-					});
-
-					// 禁止右鍵菜單
-					document.addEventListener('contextmenu', function(e) {
-					 e.preventDefault();
-					 alert('右鍵菜單已被禁用。');
-					});
-
-					// 禁止訪問開發者工具
-					document.addEventListener('keydown', function(e) {
-					 if (e.key === 'F12' || 
-					     (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || 
-					     (e.ctrlKey && e.key === 'U')) {
-					   e.preventDefault();
-					   alert('禁止訪問開發者工具。');
-					 }
-					});
-					});
-					</script> 
-					<script>
-					let slideIndex = 0;
-					showSlides();
-
-					function showSlides() {
-					   let i;
-					   let slides = document.getElementsByClassName("testimonial-item");
-					   for (i = 0; i < slides.length; i++) {
-					       slides[i].style.display = "none";
-					   }
-					   slideIndex++;
-					   if (slideIndex > slides.length) {slideIndex = 1}
-					   slides[slideIndex - 1].style.display = "block";
-					   setTimeout(showSlides, 8000); // Change image every 8 seconds
-					}
-
-					document.querySelector('.prev').addEventListener('click', () => {
-					   slideIndex -= 2; // Ensure it cycles back correctly
-					   if (slideIndex < 1) {slideIndex = slides.length} // Cycle to the last slide if index goes below 1
-					   showSlides();
-					});
-
-					document.querySelector('.next').addEventListener('click', () => {
-					   showSlides();
-					});
-					</script>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="wrap">
+    <main class="card" role="main" aria-label="公告導流頁">
+      <div class="inner">
+        <div class="topbar">
+          <div class="badge" title="狀態">
+            <span class="dot" aria-hidden="true"></span>
+            <span>感謝各位的支持 神仙科技2.0版網頁 正式關閉</span>
+          </div>
+
+          <div class="brandMark" title="品牌">
+            <span class="logo" aria-hidden="true"></span>
+            <span>OFFICIAL NOTICE</span>
+          </div>
+        </div>
+
+        <div class="grid">
+          <!-- LEFT -->
+          <section>
+            <h1>2.0老款網頁已關閉<br/>請到 Discord 查看最新網頁</h1>
+            <p class="sub">
+              為確保你看到的是<strong>最新版本</strong>（最新連結 / 最新公告 / 最新付款方式），請直接加入我們的 Discord。
+              <br/>（若你是從舊連結進來，現在看到這頁是正常的）
+            </p>
+
+            <div class="callout">
+              <div class="icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z" stroke="rgba(233,236,243,.9)" stroke-width="1.6"/>
+                  <path d="M12 10.5v6" stroke="rgba(233,236,243,.9)" stroke-width="1.6" stroke-linecap="round"/>
+                  <path d="M12 7.5h.01" stroke="rgba(233,236,243,.9)" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <b>你要做的事很簡單：點下方按鈕加入 Discord</b>
+                <small>加入後即可看到最新網頁入口與所有更新資訊（避免看錯版本）。</small>
+              </div>
+            </div>
+
+            <div class="ctaRow">
+              <a id="btnDiscord" class="btn btnPrimary" href="#" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M19.5 6.6A15.7 15.7 0 0 0 15.7 5l-.3.6c1 .3 1.9.7 2.7 1.2a10.8 10.8 0 0 0-3.3-1.1 12.3 12.3 0 0 0-5.6 0A10.8 10.8 0 0 0 5.9 6.8c.8-.5 1.7-.9 2.7-1.2L8.3 5A15.7 15.7 0 0 0 4.5 6.6C2.6 9.4 2 12 2.2 14.6c2.2 1.7 4.3 2.7 6.2 3.4l.8-1.3c-.7-.3-1.4-.6-2-.9.2-.1.4-.3.6-.4 1.2.6 2.6.9 4.2.9s3-.3 4.2-.9c.2.1.4.3.6.4-.6.3-1.3.6-2 .9l.8 1.3c1.9-.7 4-1.7 6.2-3.4.3-3-0.5-5.6-2.3-8Z" fill="rgba(7,16,24,.9)"/>
+                  <path d="M9.3 13.7c-.7 0-1.3-.6-1.3-1.4s.6-1.4 1.3-1.4c.7 0 1.3.6 1.3 1.4s-.6 1.4-1.3 1.4Zm5.4 0c-.7 0-1.3-.6-1.3-1.4s.6-1.4 1.3-1.4c.7 0 1.3.6 1.3 1.4s-.6 1.4-1.3 1.4Z" fill="rgba(7,16,24,.9)"/>
+                </svg>
+                前往 Discord（查看最新網頁）
+              </a>
+
+              <button id="btnCopy" class="btn" type="button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M8 8V6.8C8 5.8 8.8 5 9.8 5H18.2C19.2 5 20 5.8 20 6.8V15.2C20 16.2 19.2 17 18.2 17H17" stroke="rgba(233,236,243,.9)" stroke-width="1.6" stroke-linecap="round"/>
+                  <path d="M6.8 8H15.2C16.2 8 17 8.8 17 9.8V18.2C17 19.2 16.2 20 15.2 20H6.8C5.8 20 5 19.2 5 18.2V9.8C5 8.8 5.8 8 6.8 8Z" stroke="rgba(233,236,243,.9)" stroke-width="1.6"/>
+                </svg>
+                複製 Discord 連結
+              </button>
+            </div>
+
+            <div class="mono" id="linkBox">Discord 連結：<span id="discordLinkText"></span></div>
+
+            <div class="foot">
+              <div>提示：若你按鈕無法打開，請直接複製上方連結貼到瀏覽器。</div>
+              <div id="yearTag"></div>
+            </div>
+          </section>
+
+          <!-- RIGHT -->
+          <aside class="panel" aria-label="付款方式資訊">
+            <h2>新款網頁付款方式（最新）</h2>
+            <p class="sub" style="margin:0 0 10px;">
+              ✅ 支持刷卡一次付清 / 3 / 6 分期（<b>僅限台新</b>）＋紅利折抵<br/>
+              ✅ Google Pay / Samsung Pay / Apple Pay<br/>
+              ✅ 支持超商繳費、轉帳、銀聯卡等
+            </p>
+
+            <div class="chips" aria-label="付款方式清單">
+              <span class="chip"><span class="check" aria-hidden="true">✓</span>刷卡一次付清</span>
+              <span class="chip"><span class="check" aria-hidden="true">✓</span>3 期分期（台新）</span>
+              <span class="chip"><span class="check" aria-hidden="true">✓</span>6 期分期（台新）</span>
+              <span class="chip"><span class="check" aria-hidden="true">✓</span>紅利折抵</span>
+              <span class="chip"><span class="check" aria-hidden="true">✓</span>Google Pay</span>
+              <span class="chip"><span class="check" aria-hidden="true">✓</span>Samsung Pay</span>
+              <span class="chip"><span class="check" aria-hidden="true">✓</span>Apple Pay</span>
+              <span class="chip"><span class="check" aria-hidden="true">✓</span>超商繳費</span>
+              <span class="chip"><span class="check" aria-hidden="true">✓</span>轉帳</span>
+              <span class="chip"><span class="check" aria-hidden="true">✓</span>銀聯卡</span>
+            </div>
+
+            <div class="callout" style="margin-top:14px;">
+              <div class="icon" aria-hidden="true" style="background: rgba(46,229,157,.12); border-color: rgba(46,229,157,.22);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M20 7L10.5 16.5 6 12" stroke="rgba(233,236,243,.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <b>為避免看錯版本</b>
+                <small>請以 Discord 公告內的「最新網頁連結」為準（不再使用舊連結）。</small>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // ✅ 已替換為你的 Discord 連結
+    const DISCORD_INVITE = "https://discord.gg/wCF24ETbwm";
+
+    const btnDiscord = document.getElementById("btnDiscord");
+    const btnCopy = document.getElementById("btnCopy");
+    const linkText = document.getElementById("discordLinkText");
+    const toast = document.getElementById("toast");
+    const yearTag = document.getElementById("yearTag");
+
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add("show");
+      window.clearTimeout(showToast._t);
+      showToast._t = window.setTimeout(() => toast.classList.remove("show"), 1600);
+    }
+
+    function safeSetLink(){
+      btnDiscord.href = DISCORD_INVITE;
+      linkText.textContent = DISCORD_INVITE;
+    }
+
+    async function copyToClipboard(text){
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast("已複製 Discord 連結 ✅");
+      }catch(e){
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        try{
+          document.execCommand("copy");
+          showToast("已複製 Discord 連結 ✅");
+        }catch(err){
+          showToast("複製失敗，請手動複製上方連結");
+        }finally{
+          document.body.removeChild(ta);
+        }
+      }
+    }
+
+    btnCopy.addEventListener("click", () => copyToClipboard(DISCORD_INVITE));
+
+    const now = new Date();
+    yearTag.textContent = `© ${now.getFullYear()}  | 神仙科技 系統公告`;
+
+    safeSetLink();
+  </script>
 </body>
 </html>
